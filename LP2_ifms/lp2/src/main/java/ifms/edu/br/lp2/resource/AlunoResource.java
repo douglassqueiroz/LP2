@@ -3,6 +3,8 @@ package ifms.edu.br.lp2.resource;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,10 +35,11 @@ public class AlunoResource {
     public String getMeunomesobrenome(@RequestParam String nome, @RequestParam String sobrenome){
         return "My name is " + nome +  " " + sobrenome;
     }
-    @PostMapping("/inserir")
-    public Aluno salvarAluno(@RequestBody Aluno aluno){
+    @PostMapping("/insert")
+    public Aluno insert(@RequestBody @Valid Aluno aluno){
         return alunoRepository.save(aluno);
     }
+
     @GetMapping("/mostrarAlunos")
     public List<Aluno> mostrarAll(){
         return alunoRepository.findAll();
@@ -77,4 +80,5 @@ public class AlunoResource {
     public List<Aluno> listarTodos(){
         return alunoRepository.findAll();
     }
+    
 }
