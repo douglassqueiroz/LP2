@@ -33,7 +33,7 @@ public class CoordenadorResource {
     }
 
     @GetMapping("/coordenadorid/{id}")
-    public Optional<Coordenador> buscaAluno(@PathVariable(value = "id") long id) {
+    public Optional<Coordenador> buscaCoordenador(@PathVariable(value = "id") long id) {
         return coordenadorRepository.findById(id);
     }
 
